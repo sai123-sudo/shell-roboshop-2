@@ -8,17 +8,17 @@ app_setup
 nodejs_setup
 systemd_setup
 
-cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo 
 dnf install mongodb-mongosh -y &>>$LOG_FILE
-VALIDATE $? "Installing MongoDB client"
+VALIDATE $? "Installing MongoDB Client"
 
-STATUS=$(mongosh --host mongodb.vara84s.site --eval 'db.getMongo().getDBNames().indexOf("catalogue")') &>>$LOG_FILE
+STATUS=$(mongosh --host mongodb.daws84s.site --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
 if [ $STATUS -lt 0 ]
 then
-     mongosh --host mongodb.vara84s.site </app/db/master-data.js &>>$LOG_FILE
-     VALIDATE $? "Loading data into MongoDB"
+    mongosh --host mongodb.daws84s.site </app/db/master-data.js &>>$LOG_FILE
+    VALIDATE $? "Loading data into MongoDB"
 else
-    echo -e "Data is already loaded... $Y SKIPPING $N"
+    echo -e "Data is already loaded ... $Y SKIPPING $N"
 fi
 
 print_time
