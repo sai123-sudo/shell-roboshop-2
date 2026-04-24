@@ -50,13 +50,13 @@ nodejs_setup(){
 }
 
 systemd_setup(){
-    cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service 
+    cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service
     VALIDATE $? "Copying $app_name service"
 
-    systemctl demon-reload &>>$LOG_FILE
+    systemctl daemon-reload &>>$LOG_FILE
     systemctl enable $app_name  &>>$LOG_FILE
     systemctl start $app_name
-    VALIDATE $? "Starting $app_name"  #$app_name started
+    VALIDATE $? "Starting $app_name"
 }
 
 check_root(){
