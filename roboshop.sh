@@ -4,8 +4,8 @@ AMI_ID="ami-0220d79f3f480ecf5"
 SG_ID="sg-0ae902adbe8a898ac"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping"
  "payment" "dispatch" "frontend")
-ZONE_ID="Z09195762PUZ537S0AONM"
-DOMAIN_NAME="vara84s.site"
+ZONE_ID="Z02538652BABN3IEYUPTN"
+DOMAIN_NAME="vara88s.site"
 
 for instance in $@
 do
